@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "act_agents"
+version = "0.1.0"
+description = "act-agents using crewAI"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = { extras = ["tools"], version = ">=0.70.1,<1.0.0" }
+
+
+[tool.poetry.scripts]
+act_agents = "act_agents.main:run"
+run_crew = "act_agents.main:run"
+train = "act_agents.main:train"
+replay = "act_agents.main:replay"
+test = "act_agents.main:test"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

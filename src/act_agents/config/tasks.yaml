@@ -1,0 +1,40 @@
+research:
+  description: >
+    Conduct a thorough research about {stock} Stock
+    Make sure you find any interesting and relevant information given
+    the current year is 2024.
+  expected_output: >
+    A list with 10 bullet points of the most relevant information about {stock} Stock
+  agent: researcher
+
+calculateRatios:
+  description: >
+    Calculate the most important accounting ratios for {stock} Stock,
+    using the latest available financial data from 2024. Ensure that the ratios
+    include profitability, liquidity, leverage, and efficiency metrics.
+  expected_output: >
+    A detailed report of at least 5 key accounting ratios, including P/E ratio, 
+    ROI, EPS, Debt-to-Equity ratio, and Current ratio.
+  agent: accountant
+
+makeRecommendations:
+  description: >
+    Based on the research and accounting ratios provided for {stock} Stock,
+    analyze the data and make a strategic decision to either recommend
+    a buy, sell, or hold position.
+  expected_output: >
+    A final decision of either "buy," "sell," or "hold" for {stock} Stock,
+    with a brief explanation (2-3 bullet points) supporting the recommendation.
+  agent: recommender
+
+formatOutput:
+  description: >
+    Format the research, accounting ratios, and recommendation for {stock} Stock
+    into a polished, well-structured report that is clear, professional, and easy
+    for the client to understand. Ensure the layout and tone are suitable for an investment report.
+  expected_output: >
+    A professionally formatted document that includes:
+    1. Research summary
+    2. Accounting ratios analysis
+    3. Buy/sell/hold recommendation with reasoning
+  agent: blogger
