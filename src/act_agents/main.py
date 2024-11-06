@@ -1,11 +1,14 @@
 #!/usr/bin/env python
 import sys
-from act_agents.crew import ActAgentsCrew
+from . import crew
 
 # This main file is intended to be a way for your to run your
 # crew locally, so refrain from adding necessary logic into this file.
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
+
+def test():
+    return "hello"
 
 def run():
     """
@@ -14,7 +17,7 @@ def run():
     inputs = {
         'stock': 'AAPL'
     }
-    ActAgentsCrew().crew().kickoff(inputs=inputs)
+    return crew.ActAgentsCrew().crew().kickoff(inputs=inputs)
 
 
 def train():
@@ -25,7 +28,7 @@ def train():
         "stock": "AAPL"
     }
     try:
-        ActAgentsCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        crew.ActAgentsCrew().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
@@ -35,7 +38,7 @@ def replay():
     Replay the crew execution from a specific task.
     """
     try:
-        ActAgentsCrew().crew().replay(task_id=sys.argv[1])
+        crew.ActAgentsCrew().crew().replay(task_id=sys.argv[1])
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
@@ -48,7 +51,7 @@ def test():
         "stock": "AAPL"
     }
     try:
-        ActAgentsCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+        crew.ActAgentsCrew().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
