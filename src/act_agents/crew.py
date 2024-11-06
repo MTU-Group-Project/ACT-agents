@@ -11,6 +11,13 @@ from crewai_tools import SerperDevTool
 class ActAgentsCrew():
 	"""ActAgents crew"""
 
+	# Mechanism for registering callback
+	task_callback = None
+	@classmethod
+	def set_task_callback(cls, callback):
+		global task_callback
+		task_callback = callback
+
 	@agent
 	def researcher(self) -> Agent:
 		return Agent(
@@ -22,7 +29,7 @@ class ActAgentsCrew():
 	@task
 	def research(self) -> Task:
 		return Task(
-			config=self.tasks_config['research'],
+			config=self.tasks_config['research']
 		)
 
 	@agent
@@ -36,7 +43,7 @@ class ActAgentsCrew():
 	@task
 	def calculateRatios(self) -> Task:
 		return Task(
-			config=self.tasks_config['calculateRatios'],
+			config=self.tasks_config['calculateRatios']
 		)
 
 	@agent
@@ -50,7 +57,7 @@ class ActAgentsCrew():
 	@task
 	def makeRecommendations(self) -> Task:
 		return Task(
-			config=self.tasks_config['makeRecommendations'],
+			config=self.tasks_config['makeRecommendations']
 		)
 
 	@agent
@@ -64,7 +71,7 @@ class ActAgentsCrew():
 	@task
 	def formatOutput(self) -> Task:
 		return Task(
-			config=self.tasks_config['formatOutput'],
+			config=self.tasks_config['formatOutput']
 		)
 
 	@crew
@@ -76,4 +83,5 @@ class ActAgentsCrew():
 			process=Process.sequential,
 			verbose=True,
 			# process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
+			task_callback=task_callback
 		)
