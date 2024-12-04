@@ -31,7 +31,10 @@ formatOutput:
   description: >
     Format the research, accounting ratios, and recommendation for {stock} Stock
     into a polished, well-structured report that is clear, professional, and easy
-    for the client to understand. Ensure the layout and tone are suitable for an investment report.
+    for the client to understand. Ensure the layout and tone are suitable for an
+    investment report, do not use first person. Your report must be complete and
+    ready to present, without any missing information or placeholder values.
+    {mode}
   expected_output: >
     A professionally formatted document that includes:
     1. Research summary
